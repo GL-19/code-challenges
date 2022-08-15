@@ -1,4 +1,3 @@
-//weakestRows save the index of the weakest rows, from weakest to strongest, with a maximum of k rows
 function countSoldiers(row) {
 	let soldiers = 0;
 
