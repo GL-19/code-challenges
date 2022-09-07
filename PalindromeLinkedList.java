@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 //Definition for singly-linked list.
@@ -12,23 +13,22 @@ class ListNode {
 public class PalindromeLinkedList {
     public static boolean isPalindrome(ListNode head) {
         ListNode currentNode = head;
-        var stack = new Stack<Integer>();
+        var list = new ArrayList<Integer>();
 
         while(currentNode != null) {
-            stack.push(currentNode.val);
+            list.add(currentNode.val);
             currentNode = currentNode.next;
         }
 
-        currentNode = head;
+        int front = 0;
+        int back = list.size() - 1;
 
-        while(!stack.isEmpty()) {
-            int topOfTheStack = stack.pop();
-
-            if(topOfTheStack != currentNode.val) {
+        while(front < back) {
+            if(list.get(front) != list.get(back)) {
                 return false;
             }
-
-            currentNode = currentNode.next;
+            front++;
+            back--;
         }
 
         return true;
